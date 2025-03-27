@@ -1,7 +1,6 @@
 
 import React, { useEffect, useState, useRef } from "react";
 import Header from "@/components/Header";
-import PhotoFrame from "@/components/PhotoFrame";
 import AboutMe from "@/components/AboutMe";
 import ContactForm from "@/components/ContactForm";
 import Footer from "@/components/Footer";
@@ -119,14 +118,7 @@ const Index = () => {
                 className="mt-12 animate-slide-up" 
                 style={{ animationDelay: "0.6s" }}
               >
-                <Signature className="text-gray-800 w-48" />
-              </div>
-              
-              <div 
-                className="mt-8 md:mt-12 w-full max-w-md mx-auto animate-slide-up" 
-                style={{ animationDelay: "0.9s" }}
-              >
-                <PhotoFrame placeholderText="Upload your photo here" />
+                <Signature className="text-gray-800 w-72" />
               </div>
               
               {/* Scroll indicator */}
@@ -161,46 +153,6 @@ const Index = () => {
           
           {/* About Section */}
           <AboutMe />
-          
-          {/* Portfolio Section */}
-          <section id="portfolio" className="py-24 px-6 md:px-0 bg-gradient-to-b from-white to-cream/30 relative">
-            <div className="absolute top-0 right-0 w-96 h-96 bg-peach/30 rounded-full blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-72 h-72 bg-softpink/30 rounded-full blur-3xl"></div>
-            
-            <div className="max-w-4xl mx-auto relative z-10">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-16 scroll-fade fade-up">
-                <span className="inline-block px-3 py-1 text-sm font-sans font-medium bg-cream text-primary mb-3 rounded-full">My Portfolio</span>
-                <br />
-                <span className="text-foreground">Creative Showcases</span>
-              </h2>
-              
-              <div className="text-center scroll-fade">
-                <div className="glass rounded-2xl p-8 md:p-12 flex flex-col items-center">
-                  <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-6">
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="24"
-                      height="24"
-                      viewBox="0 0 24 24"
-                      fill="none"
-                      stroke="currentColor"
-                      strokeWidth="2"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      className="text-primary"
-                    >
-                      <circle cx="12" cy="12" r="10" />
-                      <polygon points="10 8 16 12 10 16 10 8" />
-                    </svg>
-                  </div>
-                  <h3 className="text-xl md:text-2xl font-display font-medium mb-4">Coming Soon</h3>
-                  <p className="text-foreground/70 max-w-md">
-                    I'm working on curating my best creative work. Stay tuned for updates as I'll be adding my TikTok videos and photography portfolio soon!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </section>
           
           {/* Contact Section */}
           <ContactForm />

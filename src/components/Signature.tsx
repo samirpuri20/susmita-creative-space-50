@@ -7,7 +7,7 @@ interface SignatureProps {
 
 const Signature: React.FC<SignatureProps> = ({ className = "" }) => {
   return (
-    <div className={`${className}`}>
+    <div className={`${className} flex flex-col items-center`}>
       <svg
         width="180"
         height="60"
@@ -37,6 +37,9 @@ const Signature: React.FC<SignatureProps> = ({ className = "" }) => {
           `}
         </style>
       </svg>
+      <div className="mt-2 font-cursive text-3xl text-shimmer animated-gradient-text">
+        Susmita Giri
+      </div>
     </div>
   );
 };
