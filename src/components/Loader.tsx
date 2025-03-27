@@ -41,17 +41,31 @@ const PageLoader: React.FC<PageLoaderProps> = ({ onLoadComplete }) => {
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-gradient-to-br from-softblue/80 via-background to-softpink/80 transition-opacity duration-500">
-      <div className="relative">
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="w-28 h-28 rounded-full border-4 border-primary/30 flex items-center justify-center">
-            <div 
-              className="w-24 h-24 rounded-full border-4 border-t-primary border-r-primary border-b-transparent border-l-transparent animate-spin-slow"
-            />
-          </div>
+      <div className="relative mb-8">
+        <div className="absolute -top-32 left-1/2 transform -translate-x-1/2 w-64 h-64">
+          <img 
+            src="/lovable-uploads/a9a8ce5b-b724-4a84-a7f8-96fe94f4d8be.png" 
+            alt="Susmita Giri" 
+            className="w-full h-full object-cover rounded-full border-4 border-primary/30"
+            style={{
+              background: 'radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%)',
+              boxShadow: '0 0 30px rgba(255,255,255,0.8)'
+            }}
+          />
         </div>
-        
-        <div className="absolute inset-0 flex items-center justify-center">
-          <div className="text-3xl font-cursive animated-gradient-text animate-bounce">SG</div>
+      
+        <div className="relative">
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-36 h-36 rounded-full border-4 border-primary/30 flex items-center justify-center">
+              <div 
+                className="w-32 h-32 rounded-full border-4 border-t-primary border-r-primary border-b-transparent border-l-transparent animate-spin-slow"
+              />
+            </div>
+          </div>
+          
+          <div className="w-44 h-44 flex items-center justify-center invisible">
+            {/* Placeholder to create space */}
+          </div>
         </div>
         
         <div className="absolute -top-4 -right-4">
@@ -61,13 +75,16 @@ const PageLoader: React.FC<PageLoaderProps> = ({ onLoadComplete }) => {
         <div className="absolute -bottom-4 -left-4">
           <Sparkles className="w-8 h-8 text-purple-400 animate-pulse" style={{ animationDelay: "0.5s" }} />
         </div>
-        
-        <div className="w-36 h-36 flex items-center justify-center invisible">
-          {/* Placeholder to create space */}
-        </div>
       </div>
       
-      <div className="mt-8 w-64 h-2 bg-white/30 rounded-full overflow-hidden">
+      <div className="text-center mb-8">
+        <h1 className="font-cursive text-5xl md:text-6xl mb-2 text-shimmer animated-gradient-text">
+          SUSMITA GIRI
+        </h1>
+        <p className="text-foreground/70 text-sm">Content Creator & Lifestyle Enthusiast</p>
+      </div>
+      
+      <div className="mt-2 w-64 h-2 bg-white/30 rounded-full overflow-hidden">
         <div 
           className="h-full bg-gradient-to-r from-purple-500 via-primary to-pink-500 rounded-full transition-all duration-300 ease-out"
           style={{ width: `${progress}%` }}

@@ -1,7 +1,6 @@
 
 import React from "react";
 import SocialLinks from "./SocialLinks";
-import Signature from "./Signature";
 
 const Footer: React.FC = () => {
   const currentYear = new Date().getFullYear();
@@ -15,8 +14,6 @@ const Footer: React.FC = () => {
       
       <div className="container mx-auto">
         <div className="max-w-4xl mx-auto text-center flex flex-col items-center">
-          <Signature className="text-gray-800 mb-6 w-64" />
-          
           <div className="mb-8">
             <SocialLinks />
           </div>
