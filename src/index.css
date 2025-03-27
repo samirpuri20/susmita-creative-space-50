@@ -45,6 +45,10 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 20% 30%, rgba(222, 235, 255, 0.3) 0%, transparent 30%),
+      radial-gradient(circle at 80% 70%, rgba(255, 226, 225, 0.3) 0%, transparent 30%);
+    background-attachment: fixed;
   }
 
   .glass {
@@ -112,6 +116,29 @@
   transform: translate(0);
 }
 
+/* Enhanced Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes text-shimmer {
+  0% { background-position: -100% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.text-shimmer {
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), transparent);
+  background-size: 200% 100%;
+  animation: text-shimmer 2.5s infinite;
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.floating {
+  animation: float 3s ease-in-out infinite;
+}
+
 /* Responsive Styling */
 .container {
   width: 100%;
@@ -124,4 +151,64 @@
   .container {
     padding: 0 16px;
   }
+}
+
+/* Creative background patterns */
+.bg-pattern-dots {
+  background-image: radial-gradient(circle, rgba(0,0,0,0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.bg-pattern-lines {
+  background: linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Interactive hover effects */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+/* Text animations */
+.animated-gradient-text {
+  background: linear-gradient(90deg, #12c2e9, #c471ed, #f64f59);
+  background-size: 200% 200%;
+  animation: gradient 15s ease infinite;
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+@keyframes gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Custom shape dividers for section transitions */
+.wave-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 94px;
+}
+
+.wave-divider .shape-fill {
+  fill: #FFFFFF;
 }

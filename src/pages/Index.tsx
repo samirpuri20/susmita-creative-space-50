@@ -84,7 +84,7 @@ const Index = () => {
           <Header />
           
           {/* Hero Section */}
-          <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-blue-50 to-white pt-20">
+          <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-gradient-to-b from-softblue/50 via-white to-white pt-20">
             <div 
               ref={heroRef}
               className="absolute inset-0 w-full h-full"
@@ -92,11 +92,11 @@ const Index = () => {
                 backgroundImage: "url('https://images.unsplash.com/photo-1500673922987-e212871fec22?auto=format&fit=crop&w=2000&q=80')",
                 backgroundSize: "cover",
                 backgroundPosition: "center",
-                opacity: 0.2,
+                opacity: 0.15,
               }}
             />
             
-            <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-white/95" />
+            <div className="absolute inset-0 bg-gradient-to-b from-white/70 to-white/90" />
             
             <div className="container relative z-10 px-6 pt-20 pb-24 md:py-32 flex flex-col items-center justify-center text-center">
               <div className="animate-fade-in mb-8">
@@ -116,17 +116,17 @@ const Index = () => {
               </div>
               
               <div 
-                className="mt-16 md:mt-20 w-full max-w-md mx-auto animate-slide-up" 
+                className="mt-12 animate-slide-up" 
                 style={{ animationDelay: "0.6s" }}
               >
-                <PhotoFrame placeholderText="Upload your photo here" />
+                <Signature className="text-gray-800 w-48" />
               </div>
               
               <div 
-                className="mt-12 animate-slide-up" 
+                className="mt-8 md:mt-12 w-full max-w-md mx-auto animate-slide-up" 
                 style={{ animationDelay: "0.9s" }}
               >
-                <Signature className="text-gray-800 w-48" />
+                <PhotoFrame placeholderText="Upload your photo here" />
               </div>
               
               {/* Scroll indicator */}
@@ -163,8 +163,11 @@ const Index = () => {
           <AboutMe />
           
           {/* Portfolio Section */}
-          <section id="portfolio" className="py-24 px-6 md:px-0 bg-gradient-to-b from-white to-cream/30">
-            <div className="max-w-4xl mx-auto">
+          <section id="portfolio" className="py-24 px-6 md:px-0 bg-gradient-to-b from-white to-cream/30 relative">
+            <div className="absolute top-0 right-0 w-96 h-96 bg-peach/30 rounded-full blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-72 h-72 bg-softpink/30 rounded-full blur-3xl"></div>
+            
+            <div className="max-w-4xl mx-auto relative z-10">
               <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-16 scroll-fade fade-up">
                 <span className="inline-block px-3 py-1 text-sm font-sans font-medium bg-cream text-primary mb-3 rounded-full">My Portfolio</span>
                 <br />

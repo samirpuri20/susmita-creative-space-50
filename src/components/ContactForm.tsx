@@ -2,9 +2,10 @@
 import React, { useState } from "react";
 import { Send } from "lucide-react";
 import { useToast } from "@/hooks/use-toast";
+import { toast } from "sonner";
 
 const ContactForm: React.FC = () => {
-  const { toast } = useToast();
+  const { toast: shadcnToast } = useToast();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -23,26 +24,51 @@ const ContactForm: React.FC = () => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: "Thank you for contacting me. I'll respond soon!",
+    try {
+      // Send email using EmailJS or similar service
+      const response = await fetch("https://formspree.io/f/girisusmita378@gmail.com", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      
-      setFormData({
-        name: "",
-        email: "",
-        message: "",
+
+      if (response.ok) {
+        // Use the sonner toast for a more modern look
+        toast.success("Message sent!", {
+          description: "Thank you for reaching out. I'll get back to you soon!",
+        });
+        
+        // Reset form
+        setFormData({
+          name: "",
+          email: "",
+          message: "",
+        });
+      } else {
+        toast.error("Failed to send message", {
+          description: "Please try again later or contact me directly via email.",
+        });
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+      toast.error("Failed to send message", {
+        description: "Please try again later or contact me directly via email.",
       });
-      
+    } finally {
       setIsSubmitting(false);
-    }, 1500);
+    }
   };
 
   return (
-    <div id="contact" className="py-24 px-6 md:px-0">
-      <div className="max-w-4xl mx-auto">
+    <div id="contact" className="py-24 px-6 md:px-0 relative">
+      {/* Decorative backgrounds */}
+      <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-white/0 via-cream/30 to-white/0 pointer-events-none"></div>
+      <div className="absolute -top-40 right-0 w-96 h-96 bg-peach/40 rounded-full blur-3xl"></div>
+      <div className="absolute -bottom-20 left-0 w-80 h-80 bg-softblue/30 rounded-full blur-3xl"></div>
+      
+      <div className="max-w-4xl mx-auto relative z-10">
         <h2 className="text-3xl md:text-4xl font-display font-bold text-center mb-16 scroll-fade fade-up">
           <span className="inline-block px-3 py-1 text-sm font-sans font-medium bg-peach text-primary mb-3 rounded-full">Get In Touch</span>
           <br />
@@ -73,7 +99,7 @@ const ContactForm: React.FC = () => {
           </div>
           
           <div className="md:col-span-3 scroll-fade fade-right">
-            <form onSubmit={handleSubmit} className="glass rounded-2xl p-8">
+            <form onSubmit={handleSubmit} className="glass rounded-2xl p-8 shadow-lg">
               <div className="mb-6">
                 <label htmlFor="name" className="block text-foreground/80 mb-2">
                   Name

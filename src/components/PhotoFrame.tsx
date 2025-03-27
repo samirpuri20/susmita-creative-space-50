@@ -74,7 +74,8 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
       className="relative w-full max-w-sm h-80 md:h-96 mx-auto rounded-2xl overflow-hidden cursor-pointer transition-all duration-500 glass-dark"
       style={{ 
         transformStyle: 'preserve-3d',
-        transition: 'transform 300ms ease-out'
+        transition: 'transform 300ms ease-out',
+        boxShadow: '0 20px 40px rgba(0, 0, 0, 0.2)'
       }}
     >
       {image ? (
@@ -85,7 +86,7 @@ const PhotoFrame: React.FC<PhotoFrameProps> = ({
         />
       ) : (
         <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
-          <div className="w-16 h-16 mb-4 rounded-full bg-white/20 flex items-center justify-center">
+          <div className="w-16 h-16 mb-4 rounded-full bg-white/20 flex items-center justify-center animate-pulse">
             <Camera className="w-8 h-8 text-white" />
           </div>
           <p className="text-white font-medium">{placeholderText}</p>
